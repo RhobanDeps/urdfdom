@@ -1,0 +1,4 @@
+deps:
+  - rhobandeps/console_bridge
+  - rhobandeps/urdfdom_headers
+

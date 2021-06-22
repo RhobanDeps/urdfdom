@@ -1,4 +1,4 @@
-cmake_minimum_required( VERSION 2.8 FATAL_ERROR )
+cmake_minimum_required(VERSION 3.16.3)
 project (urdfdom CXX C)
 
 set (URDF_MAJOR_VERSION 1)
@@ -35,8 +35,6 @@ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 find_package(TinyXML REQUIRED)
 include_directories(SYSTEM ${TinyXML_INCLUDE_DIRS})
 
-find_package(catkin REQUIRED COMPONENTS urdfdom_headers console_bridge)
-
 include_directories(SYSTEM ${urdfdom_headers_INCLUDE_DIRS})
 if (NOT MSVC)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
@@ -57,12 +55,6 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR}"
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_LIBDIR}")
 
 enable_testing()
-
-catkin_package(
-  INCLUDE_DIRS urdf_parser/include
-  LIBRARIES urdfdom_sensor urdfdom_model_state urdfdom_model urdfdom_world
-  DEPENDS urdfdom_headers console_bridge
-)
 
 add_subdirectory(urdf_parser)
 
