@@ -1,4 +1,4 @@
 deps:
-  - rhobandeps/console_bridge
-  - rhobandeps/urdfdom_headers
+  - rhobandeps/console_bridge#wks
+  - rhobandeps/urdfdom_headers#wks
 
